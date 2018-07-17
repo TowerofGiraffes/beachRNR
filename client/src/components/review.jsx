@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import ReactStars from 'react-stars';
 import {reviewList, listingRatings} from '../data/mock-data-review.js';
 import ReviewItem from './reviewitem.jsx';
+import styled from 'styled-components';
+
+const ReviewCount = styled.h2`
+  float: left;
+`;
+
+const ReviewPanel = styled.div`
+  clear: both;
+`
 
 class Review extends React.Component {
   constructor(props) {
@@ -16,10 +25,10 @@ class Review extends React.Component {
     return (
       <div>
         <div>
-          <h2 style={{'float': 'left'}}>580 Reviews</h2>
+          <ReviewCount>580 Reviews</ReviewCount>
           <ReactStars count={5} size={30} value ={5} color2={'#137269'} edit={false}/>
         </div>
-        <div style={{'clear': 'both'}}>
+        <ReviewPanel>
           <span style={{'float': 'left'}}>Accuracy</span>
           <ReactStars count={5} size={24} value={listingRatings.Accuracy} color2={'#137269'} edit={false}/>
           <span style={{'float': 'left'}}>Location</span>
@@ -32,9 +41,8 @@ class Review extends React.Component {
           <ReactStars count={5} size={24} value={listingRatings.Cleanliness} color2={'#137269'} edit={false}/>
           <span style={{'float': 'left'}}>Value</span>
           <ReactStars count={5} size={24} value={listingRatings.Value} color2={'#137269'} edit={false}/>
-        </div>
+        </ReviewPanel>
         {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
-
 
       </div>
       )
