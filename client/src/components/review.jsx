@@ -11,7 +11,7 @@ const ReviewCount = styled.h2`
 
 const ReviewPanel = styled.div`
   clear: both;
-`
+`;
 
 class Review extends React.Component {
   constructor(props) {
@@ -24,10 +24,12 @@ class Review extends React.Component {
   render() {
     return (
       <div>
+
         <div>
           <ReviewCount>580 Reviews</ReviewCount>
           <ReactStars count={5} size={30} value ={5} color2={'#137269'} edit={false}/>
         </div>
+
         <ReviewPanel>
           <span style={{'float': 'left'}}>Accuracy</span>
           <ReactStars count={5} size={24} value={listingRatings.Accuracy} color2={'#137269'} edit={false}/>
@@ -42,8 +44,8 @@ class Review extends React.Component {
           <span style={{'float': 'left'}}>Value</span>
           <ReactStars count={5} size={24} value={listingRatings.Value} color2={'#137269'} edit={false}/>
         </ReviewPanel>
-        {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
 
+        {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
       </div>
       )
   }
