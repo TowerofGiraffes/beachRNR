@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactStars from 'react-stars';
 import {reviewList, listingRatings} from '../data/mock-data-review.js';
-import ReviewItem from './reviewitem.jsx';
+import ReviewItem from './Reviewitem.jsx';
 import styled from 'styled-components';
 
 const ReviewCount = styled.h2`
