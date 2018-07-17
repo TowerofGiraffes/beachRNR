@@ -13,6 +13,10 @@ const ReviewPanel = styled.div`
   clear: both;
 `;
 
+const ReviewType = styled.span`
+  float: left;
+`;
+
 class Review extends React.Component {
   constructor(props) {
     super(props);
@@ -31,17 +35,17 @@ class Review extends React.Component {
         </div>
 
         <ReviewPanel>
-          <span style={{'float': 'left'}}>Accuracy</span>
+          <ReviewType>Accuracy</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Accuracy} color2={'#137269'} edit={false}/>
-          <span style={{'float': 'left'}}>Location</span>
+          <ReviewType>Location</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Location} color2={'#137269'} edit={false}/>
-          <span style={{'float': 'left'}}>Communication</span>
+          <ReviewType>Communication</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Communication} color2={'#137269'} edit={false}/>
-          <span style={{'float': 'left'}}>Check-in</span>
+          <ReviewType>Check-in</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Checkin} color2={'#137269'} edit={false}/>
-          <span style={{'float': 'left'}}>Cleanliness</span>
+          <ReviewType>Cleanliness</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Cleanliness} color2={'#137269'} edit={false}/>
-          <span style={{'float': 'left'}}>Value</span>
+          <ReviewType>Value</ReviewType>
           <ReactStars count={5} size={24} value={listingRatings.Value} color2={'#137269'} edit={false}/>
         </ReviewPanel>
 
