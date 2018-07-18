@@ -32,6 +32,14 @@ class Review extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.reportHandler = this.reportHandler.bind(this);
+  }
+
+  reportHandler(e) {
+    console.log('flag has been clicked');
+  }
+
   render() {
     return (
       <ReviewSection >
@@ -55,7 +63,7 @@ class Review extends React.Component {
           <ReactStars count={5} size={24} value={listingRatings.Value} color2={'#137269'} edit={false}/>
         </ReviewPanel>
 
-        {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
+        {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content} reportHandler={this.reportHandler}/>)}
       </ReviewSection>
       )
   }

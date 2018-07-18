@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "image-webpack-loader": "^4.3.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-stars": "^2.2.5",

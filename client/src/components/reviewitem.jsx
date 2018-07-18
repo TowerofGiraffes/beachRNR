@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import flagIcon from '../assets/red_flag.jpg';
 
 const ReviewItemDiv = styled.div`
   margin-top: 1em;
@@ -30,17 +31,27 @@ const ReviewPerson = styled.span`
   line-height: 1.3em;
 `;
 
+const FlagIconDiv = styled.img`
+  width:20px;
+  height: 20px;
+  float: right;
+  margin-right: 1em;
+`;
+
 const ReviewItem = (props) => (
   <ReviewItemDiv>
     <ReviewItemAvatar src={props.user_avatar} />
     <ReviewPerson>{props.user_name}</ReviewPerson>
+    <FlagIconDiv src={flagIcon} onClick = {props.reportHandler}/>
     <br></br>
     <ReviewPerson>{props.review_date}</ReviewPerson>
+
     <ReviewContent>
       <p>
       {props.review_content}
       </p>
     </ReviewContent>
+
   </ReviewItemDiv>
 );
 
