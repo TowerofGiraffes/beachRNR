@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactStars from 'react-stars';
-import {reviewList, listingRatings} from '../data/mock-data-review.js';
+import {reviewList, listingRatings} from '../../data/mock-data-review.js';
 import ReviewItem from './Reviewitem.jsx';
 import styled from 'styled-components';
 
@@ -17,6 +17,7 @@ const ReviewCount = styled.h2`
 
 const ReviewPanel = styled.div`
   clear: both;
+  margin-bottom: 2em;
 `;
 
 const ReviewType = styled.span`

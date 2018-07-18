@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-// import flagIcon from '../assets/red_flag.jpg';
-import {Icon, Modal} from 'semantic-ui-react';
+import reviewCss from '../../styles/review.css';
+import ModalModalExample from './Report.jsx';
 
 const ReviewItemDiv = styled.div`
   margin-top: 1em;
@@ -25,6 +25,7 @@ const ReviewContent = styled.div`
   line-height: 1.2em;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 1em;
 `;
 
 const ReviewPerson = styled.span`
@@ -32,21 +33,14 @@ const ReviewPerson = styled.span`
   line-height: 1.3em;
 `;
 
-// const FlagIconDiv = styled.img`
-//   width:20px;
-//   height: 20px;
-//   float: right;
-//   margin-right: 1em;
-// `;
 
 const ReviewItem = (props) => (
   <ReviewItemDiv>
     <ReviewItemAvatar src={props.user_avatar} />
     <ReviewPerson>{props.user_name}</ReviewPerson>
-    <Icon name='flag outline' onClick={props.reportHandler}/>
+    <ModalModalExample />
     <br></br>
     <ReviewPerson>{props.review_date}</ReviewPerson>
-
     <ReviewContent>
       <p>
       {props.review_content}
