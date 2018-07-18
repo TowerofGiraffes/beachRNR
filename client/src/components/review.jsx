@@ -5,6 +5,12 @@ import {reviewList, listingRatings} from '../data/mock-data-review.js';
 import ReviewItem from './Reviewitem.jsx';
 import styled from 'styled-components';
 
+
+const ReviewSection = styled.div`
+  margin: 20%;
+  width: 60%;
+`;
+
 const ReviewCount = styled.h2`
   float: left;
 `;
@@ -17,6 +23,7 @@ const ReviewType = styled.span`
   float: left;
 `;
 
+
 class Review extends React.Component {
   constructor(props) {
     super(props);
@@ -27,8 +34,7 @@ class Review extends React.Component {
 
   render() {
     return (
-      <div>
-
+      <ReviewSection >
         <div>
           <ReviewCount>580 Reviews</ReviewCount>
           <ReactStars count={5} size={30} value ={5} color2={'#137269'} edit={false}/>
@@ -50,7 +56,7 @@ class Review extends React.Component {
         </ReviewPanel>
 
         {reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
-      </div>
+      </ReviewSection>
       )
   }
 };

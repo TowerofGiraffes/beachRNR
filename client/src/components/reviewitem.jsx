@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const ReviewItemAvatar = styled.img`
-  width: 5%;
-  height: 5%;
+  width: 50px;
+  height: 50px;
   float: left;
   border-radius: 50%;
 `;
