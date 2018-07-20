@@ -10,8 +10,16 @@
   color: grey !important;
 }
 
+.pagination{
+  margin-top: 2em;
+}
+
 .active {
   font-weight: bold;
+}
+
+.reportForm {
+  height: 3em;
 }
 
 li {
