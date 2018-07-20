@@ -1,8 +1,7 @@
 import React from 'react';
-import { Pagination } from 'semantic-ui-react'
 
 
-class PaginationCus extends React.Component {
+class Pagination extends React.Component {
 
   constructor(props) {
     super(props);
@@ -96,4 +95,4 @@ class PaginationCus extends React.Component {
 
 }
 
-export default PaginationCus;
+export default Pagination;
