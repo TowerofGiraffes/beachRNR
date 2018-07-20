@@ -1,51 +1,57 @@
 import React from 'react';
+import { Pagination } from 'semantic-ui-react'
 
 
-class Pagination extends React.Component {
+class PaginationCus extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       pager: {}
     }
+    this.setPage = this.setPage.bind(this);
+    this.getPager = this.getPager.bind(this);
+  }
+
+  componentWillMount() {
+    this.setPage(1);
   }
 
   setPage(page) {
-
-    var pager = getPager(this.props.fullReviewList, page, 5);
+    var pager = this.getPager(this.props.fullReviewList, page, 5);
     this.setState({
       pager: pager
     })
-    var itemList = this.props.fullReviewList.slice(startIndex, endIndex+1);
+    var itemList = this.props.fullReviewList.slice(pager.startIndex, pager.endIndex+1);
     this.props.onChange(itemList);
   }
 
   getPager(totalItems, currentPage, pageSize) {
     currentPage = currentPage || 1;
     pageSize = pageSize || 10;
-    var totalPages =  Math.ceil(totalItems / pageSize);
+    var totalPages =  Math.ceil(totalItems.length / pageSize);
     var startPage, endPage;
     var pages = [];
 
     if(totalPages<=10) {
       startPage = 1;
-      endPage = 10;
+      endPage = totalPages;
     } else {
       if(currentPage<=6) {
         startPage = 1;
         endPage = 10;
       } else if(currentPage >= totalPages - 4) {
         startPage = totalPages - 9;
-        endPage = totalPage;
+        endPage = totalPages;
       } else {
         startPage = currentPage - 4;
         endPage = currentPage + 5;
       };
     };
 
-    pages = [...Array(endPage - startPage + 1)].map(p => p + 1);
-    startIndex = pageSize * (currentPage - 1);
-    endIndex = startIndex + pageSize - 1;
+    pages = [...Array(endPage - startPage + 1).keys()].map(p => startPage + p);
+    var startIndex = pageSize * (currentPage - 1);
+    var endIndex = startIndex + pageSize - 1;
 
     return {
        currentPage: currentPage,
@@ -90,4 +96,4 @@ class Pagination extends React.Component {
 
 }
 
-export default Pagination;
+export default PaginationCus;

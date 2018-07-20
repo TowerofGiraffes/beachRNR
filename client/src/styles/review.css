@@ -2,3 +2,26 @@
   float: right;
   margin-right: 1em;
 }
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: grey !important;
+}
+
+.active {
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+  float: left;
+  margin-right: 1em;
+}
+
+a:hover {
+   cursor: pointer;
+   text-decoration: underline;
+}
+

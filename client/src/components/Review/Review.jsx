@@ -4,7 +4,7 @@ import ReactStars from 'react-stars';
 import {fullReviewList, listingRatings} from '../../data/mock-data-review.js';
 import ReviewItem from './Reviewitem.jsx';
 import styled from 'styled-components';
-import Pagination from './Pagination.jsx';
+import PaginationCus from './Pagination.jsx';
 
 
 const ReviewSection = styled.div`
@@ -74,7 +74,7 @@ class Review extends React.Component {
         </ReviewPanel>
 
         {this.state.reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content} reportHandler={this.reportHandler}/>)}
-        <Pagination fullReviewList={this.state.fullReviewList} onChange={this.onChange}/>
+        <PaginationCus fullReviewList={this.state.fullReviewList} onChange={this.onChange}/>
       </ReviewSection>
       )
   }
