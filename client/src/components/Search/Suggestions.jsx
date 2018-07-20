@@ -16,37 +16,59 @@ const SuggestedItem = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 `;
 
+const SuggestionCard = styled(Card)`
+  box-shadow: none !important;  
+`;
+const ThumbnailImage = styled(Image)`
+  width: 300px; 
+  height: 200px;
+  border-radius: 2%;
+`;
+
+const HeaderSpan = styled.span`
+  font-size: 12px; 
+`;
+
+const PolicySpan = styled.span`
+  font-weight: 100;
+  font-size: 14px;   
+`;
+
+const MetaDataSpan = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+`;
+
 const Suggestions = (props) => {
   const options = props.results.map(r => (
     <SuggestedItem key={r.id}>
-      <Card style={ {boxShadow: 'none'} }>
-        <Image
+      <SuggestionCard>
+        <ThumbnailImage
             src={r.unitImage}
             alt={`Image for ${r.unitName}`}
-            style={ {width: '300px', height: '200px', borderRadius: '2%'} }
         />
         <Card.Content style={ {marginLeft: '0px', 'paddingLeft': '0px'} }>
           <Card.Header>
-            <span style={ {fontSize: '12px'} }>
+            <HeaderSpan>
               {r.room_type.toUpperCase()}
               <span> · </span>
               {r.beds < 2 ? `${r.beds} BED` : `${r.beds} BEDS`}
-            </span>
+            </HeaderSpan>
             <br />
             {r.unitName}
             <br />
-            <span style={ {fontWeight: '100', fontSize: '14px'} }>
+            <PolicySpan>
               {r.unitPrice.split('.')[0]} {r.priceModifier}
               {r.freeCancellation ? <span> · </span> : ''}
               {r.freeCancellation ? 'Free Cancellation' : ''}
-            </span>
+            </PolicySpan>
           </Card.Header>
           <Card.Meta style={ {fontWeight: 'bold', fontColor: '#b2beb5'} }>
-            <span style={{display:'inline-block', verticalAlign: 'middle'}}>
+            <MetaDataSpan>
               <ReactStars 
                 count={5} size={12} value={r.reviewScoresRating} color2={'#008489'} edit={false}
               />
-            </span> 
+            </MetaDataSpan> 
             <span>
               {r.numberOfReviews}
               {r.isSuprhost ? <span> · </span> : ''}
@@ -54,11 +76,10 @@ const Suggestions = (props) => {
             </span>
           </Card.Meta>
         </Card.Content>
-      </Card>
-
+      </SuggestionCard>
     </SuggestedItem>
   ))
   return <SuggestedList>{options}</SuggestedList>
-}
+};
 
 export default Suggestions;
