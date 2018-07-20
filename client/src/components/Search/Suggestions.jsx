@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Ul = styled.ul`
-  padding: 0;
-`;
-
-const Li = styled.li`
-  list-style-type: none;
-`;
+import { Card, Image } from 'semantic-ui-react';
+import ReactStars from 'react-stars';
 
 const SuggestedList = styled.li`
   list-style-type: none;
@@ -17,34 +11,54 @@ const SuggestedList = styled.li`
   text-align: left;
 `;
 
-const SuggestedItem = styled.ul`
-  margin: 20px;
-  text-align: center;
+const SuggestedItem = styled.div`
+  font-size: 12px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 `;
-
-const Image = styled.img`
-  width: 200px;
-  height: 200px;
-  border-radius: 5%;  
-`
 
 const Suggestions = (props) => {
   const options = props.results.map(r => (
     <SuggestedItem key={r.id}>
-      <Ul>
-        <Li>          
-          <Image
+      <Card style={ {boxShadow: 'none'} }>
+        <Image
             src={r.unitImage}
             alt={`Image for ${r.unitName}`}
-          />
-        </Li>
-        <Li>{r.unitName}</Li>
-        <Li>{r.unitPrice}, {r.priceModifier}</Li>
-        <Li>{r.unitAddress}</Li>
-      </Ul>
+            style={ {width: '300px', height: '200px', borderRadius: '2%'} }
+        />
+        <Card.Content style={ {marginLeft: '0px', 'paddingLeft': '0px'} }>
+          <Card.Header>
+            <span style={ {fontSize: '12px'} }>
+              {r.room_type.toUpperCase()}
+              <span> · </span>
+              {r.beds < 2 ? `${r.beds} BED` : `${r.beds} BEDS`}
+            </span>
+            <br />
+            {r.unitName}
+            <br />
+            <span style={ {fontWeight: '100', fontSize: '14px'} }>
+              {r.unitPrice.split('.')[0]} {r.priceModifier}
+              {r.freeCancellation ? <span> · </span> : ''}
+              {r.freeCancellation ? 'Free Cancellation' : ''}
+            </span>
+          </Card.Header>
+          <Card.Meta style={ {fontWeight: 'bold', fontColor: '#b2beb5'} }>
+            <span style={{display:'inline-block', verticalAlign: 'middle'}}>
+              <ReactStars 
+                count={5} size={12} value={r.reviewScoresRating} color2={'#008489'} edit={false}
+              />
+            </span> 
+            <span>
+              {r.numberOfReviews}
+              {r.isSuprhost ? <span> · </span> : ''}
+              {r.isSuprhost ? 'Superhost' : ''}
+            </span>
+          </Card.Meta>
+        </Card.Content>
+      </Card>
+
     </SuggestedItem>
   ))
   return <SuggestedList>{options}</SuggestedList>
 }
 
-export default Suggestions
+export default Suggestions;
