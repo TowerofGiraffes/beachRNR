@@ -16,6 +16,10 @@ const BigText = styled.span`
   font-size: 22px;
 `;
 
+const LightDivide = styled.hr`
+  opacity: 0.5;
+`;
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +34,7 @@ class Booking extends React.Component {
             <div>
               <VertAlignedStars count={5} size={12} value={5} color2={'#137269'} edit={false}/> <SmallText>580</SmallText>
             </div>
+            <LightDivide></LightDivide>
           </Card.Header>
         </Card.Content>
       </Card>
