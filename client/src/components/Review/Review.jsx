@@ -47,7 +47,7 @@ class Review extends React.Component {
       <ReviewSection >
         <div>
           <a name='reviewtop'></a>
-          <ReviewCount>480 Reviews</ReviewCount>
+          <ReviewCount>580 Reviews</ReviewCount>
           <ReactStars count={5} size={30} value ={5} color2={'#137269'} edit={false}/>
         </div>
 
