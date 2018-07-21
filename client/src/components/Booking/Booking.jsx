@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import '../../styles/booking.css';
 
 const VertAlignedStars = styled(ReactStars)`
   display: inline-block;
