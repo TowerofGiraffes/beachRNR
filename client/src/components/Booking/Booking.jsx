@@ -1,5 +1,20 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
+import ReactStars from 'react-stars';
+import styled from 'styled-components';
+
+const VertAlignedStars = styled(ReactStars)`
+  display: inline-block;
+  vertical-align: middle;
+`;
+
+const SmallText = styled.span`
+  font-size: 12px;
+`;
+
+const BigText = styled.span`
+  font-size: 22px;
+`;
 
 class Booking extends React.Component {
   constructor(props) {
@@ -10,7 +25,12 @@ class Booking extends React.Component {
     return (
       <Card>
         <Card.Content>
-          <Card.Header></Card.Header>
+          <Card.Header>
+            <BigText>$70</BigText> <SmallText>per night</SmallText>
+            <div>
+              <VertAlignedStars count={5} size={12} value={5} color2={'#137269'} edit={false}/> <SmallText>580</SmallText>
+            </div>
+          </Card.Header>
         </Card.Content>
       </Card>
     )
