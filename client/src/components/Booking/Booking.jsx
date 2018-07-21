@@ -22,6 +22,7 @@ const BigText = styled.span`
 
 const CardContainer = styled.div`
   width: 376px;
+  margin: 3rem auto;
 `;
 
 const DropDown = styled.div`
