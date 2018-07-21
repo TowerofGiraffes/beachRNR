@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Divider } from 'semantic-ui-react';
+import { Card, Divider, Button } from 'semantic-ui-react';
 import ReactStars from 'react-stars';
 import styled from 'styled-components';
 import 'react-dates/initialize';
@@ -52,12 +52,14 @@ class Booking extends React.Component {
       focusedInput: null,
       standardGuests: 1,
       infantGuests: 0,
-      guestMenuOpen: false
+      guestMenuOpen: false,
+      booked: false
     };
 
     this.toggleGuestMenu = this.toggleGuestMenu.bind(this);
     this.incrementGuests = this.incrementGuests.bind(this);
     this.decrementGuests = this.decrementGuests.bind(this);
+    this.book = this.book.bind(this);
   }
 
   toggleGuestMenu() {
@@ -78,6 +80,12 @@ class Booking extends React.Component {
         standardGuests: --this.state.standardGuests
       });
     }
+  }
+  
+  book() {
+    this.setState({
+      booked: !this.state.booked
+    });
   }
 
   render() {
@@ -150,6 +158,13 @@ class Booking extends React.Component {
                   : null
                 }
               </DropDown>
+              <Divider hidden />
+              <Button onClick={this.book} style={{backgroundColor: !this.state.booked ? '#FF5A5F' : '#21ba45', color: 'white'}} size='huge' fluid>
+                {!this.state.booked
+                  ? 'Book'
+                  : <span style={{fontSize: '36px', lineHeight: '12px', verticalAlign: 'sub'}}>✓</span>
+                }
+              </Button>
             </div>
           </Card.Content>
         </Card>
