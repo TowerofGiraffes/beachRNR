@@ -36,24 +36,17 @@ class Review extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  componentDidMount() {
-    this.reportHandler = this.reportHandler.bind(this);
-  }
-
   onChange(currentPageItems) {
     this.setState({
       'reviewList': currentPageItems
     })
   }
 
-  reportHandler(e) {
-    console.log('flag has been clicked');
-  }
-
   render() {
     return (
       <ReviewSection >
         <div>
+          <a name='reviewtop'></a>
           <ReviewCount>480 Reviews</ReviewCount>
           <ReactStars count={5} size={30} value ={5} color2={'#137269'} edit={false}/>
         </div>
@@ -73,7 +66,7 @@ class Review extends React.Component {
           <ReactStars count={5} size={24} value={listingRatings.Value} color2={'#137269'} edit={false}/>
         </ReviewPanel>
 
-        {this.state.reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content} reportHandler={this.reportHandler}/>)}
+        {this.state.reviewList.map(review => <ReviewItem key={review.review_id} user_avatar={review.user_avatar} user_name={review.user_name} review_date={review.review_date} review_content={review.review_content}/>)}
         <div className='pagination'>
           <Pagination fullReviewList={this.state.fullReviewList} onChange={this.onChange}/>
         </div>
