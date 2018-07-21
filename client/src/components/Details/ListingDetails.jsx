@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { details } from '../../data/mockpagedetail.js';
-import style from '../../styles/listingdetails.css';
+import styled from 'styled-components';
 
+const MainImage = styled.div`
+
+`;
+
+const MainContainer = styled.div`
+    width: 60%;
+    margin: 0 auto;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    border-width: 1px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+`;
+
+const Description = styled.div`
+  width: 80%;
+`;
 
 class ListingDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: details
     }
   }
 
@@ -20,23 +36,31 @@ class ListingDetails extends React.Component {
   //   console.log('flag has been clicked');
   // }
 
+
   render(props) {
+    const data = this.props.data;
     return (
       <div>
-        <img src = 'https://a0.muscache.com/im/pictures/50616050/43df6979_original.jpg'></img>
-        <div>
-          <h1>Beautiful Guest Suite for 2</h1>
-          <h3>Seattle, Washington</h3>
-        </div>
-        <div>
-          <h4>1 Bedroom  Condominium</h4>
-          <h4> $70.00 per night</h4>
-        </div>
-        <div>
-          <p>This lovely, modern room and ensuite bath is detached from the main house, so you can enjoy privacy and quiet. We are a 5 min drive from Ballard and a 15 min drive from downtown. Welcome to our quiet, safe neighborhood!</p>
-        </div>
-      </div>
+        <MainImage style={ {
+          backgroundImage: 'url('+data.unitImage+')',
+          height: '500px',
+          width: '100%',
+          backgroundRepeat:'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: '50% 50%'
+        } }>
 
+        </MainImage>
+        <MainContainer>
+          <h1>{data.unitName}</h1>
+          <h3>{data.city}, {data.state}</h3>
+          <h4>{data.beds} Bedroom  {data.property_type}</h4>
+          <h4>{data.unitPrice} {data.priceModifier}</h4>
+          <Description>
+            <p>{data.description_short}</p>
+          </Description>
+        </MainContainer>
+      </div>
       )
   }
 };
