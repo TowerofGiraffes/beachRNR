@@ -5,8 +5,8 @@ import { Form } from 'semantic-ui-react'
 import styled from 'styled-components';
 
 const Div = styled.div`
-  width: 40%;
-  margin: 3% 5%;
+  width: 50%;
+  margin: 3% auto;
 `;
 
 class Search extends React.Component {
@@ -18,6 +18,16 @@ class Search extends React.Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    let results = listings.filter(listing => 
+      listing.city === 'San Francisco'
+    );
+    this.setState({
+      results: results,
+      query: 'San Francisco'
+    })
   }
  
   handleInputChange() {
@@ -57,10 +67,14 @@ class Search extends React.Component {
             />
           </Form.Field>
         </Div>
+        {this.state.query === 'San Francisco' ? <Div style={ {fontSize: '25px',  marginLeft: '10px', color: '#696969', fontWeight: 'bold'} }>Places to stay near you</Div> : ''}
         {!this.state.query.length ? '' 
           : (this.state.results.length > 0 
-            ? <Suggestions results={this.state.results} /> 
-            : <Div> No result found for the search criteria 
+            ? 
+              <Suggestions results={this.state.results} /> 
+            : 
+              <Div> 
+                No result found for the search criteria 
             </Div>
           )
         }
