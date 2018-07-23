@@ -5,10 +5,10 @@ import icon from '../../../theming/images/icon.png'
 
 let Navbar = () => {
   return (
-    <Menu borderless pointing fixed='top' style={{ height: 50, boxShadow: 'none', border: 'none', marginTop: '10px', marginLeft: '10px'}}>
+    <Menu borderless pointing fixed='top' style={{ height: 90, boxShadow: 'none', border: 'none', position: 'fixed' }}>
       <Menu.Item position="left">
         <NavLink to='/' activeClassName='active'>
-          <Image src={icon} size='mini' />
+          <Image src={icon} size='mini' style={{ margin: '30px 10px' }}/>
         </NavLink>
       </Menu.Item>
     </Menu>
