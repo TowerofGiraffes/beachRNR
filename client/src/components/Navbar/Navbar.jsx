@@ -1,17 +1,29 @@
 import React from 'react';
-import NavLink from 'react-router-dom/NavLink';
+import styled from 'styled-components';
 import { Menu, Image } from 'semantic-ui-react';
+import NavLink from 'react-router-dom/NavLink';
 import icon from '../../../theming/images/icon.png'
+
+const IconImage = styled(Image)`
+  margin: '30px 10px';
+`;
+
+const StyledMenu = styled(Menu)`
+  height: 90px;
+  box-shadow: none !important;
+  border: none !important;
+  position: fixed;
+`;
 
 let Navbar = () => {
   return (
-    <Menu borderless pointing fixed='top' style={{ height: 90, boxShadow: 'none', border: 'none', position: 'fixed' }}>
+    <StyledMenu borderless pointing fixed='top'>
       <Menu.Item position="left">
         <NavLink to='/' activeClassName='active'>
-          <Image src={icon} size='mini' style={{ margin: '30px 10px' }}/>
+          <IconImage src={icon} size='mini'/>
         </NavLink>
       </Menu.Item>
-    </Menu>
+    </StyledMenu>
   )
 }
 

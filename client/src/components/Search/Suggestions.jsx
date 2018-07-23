@@ -20,6 +20,7 @@ const SuggestedItem = styled.div`
 const SuggestionCard = styled(Card)`
   box-shadow: none !important;  
 `;
+
 const ThumbnailImage = styled(Image)`
   width: 300px; 
   height: 200px;

@@ -1,7 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Navbar from './Navbar/Navbar.jsx';
 import Search from './Search/Search.jsx';
+
+const SearchDiv = styled.div`
+  margin-top: 90px;
+`;
 
 const LandingPage = () => {
   return (
@@ -9,9 +14,9 @@ const LandingPage = () => {
       <div>
         <Navbar />
       </div>
-      <div style={{marginTop: 90}}>
+      <SearchDiv>
         <Search />
-      </div>
+      </SearchDiv>
     </div>
   )
 }

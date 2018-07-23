@@ -9,6 +9,13 @@ const Div = styled.div`
   margin: 3% auto;
 `;
 
+const HeaderDiv = Div.extend`
+  font-size: 25px;
+  margin-left: 20px !important;
+  color: #696969;
+  font-weight: bold;
+`;
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -67,7 +74,7 @@ class Search extends React.Component {
             />
           </Form.Field>
         </Div>
-        {this.state.query === 'San Francisco' ? <Div style={ {fontSize: '25px',  marginLeft: '10px', color: '#696969', fontWeight: 'bold'} }>Places to stay near you</Div> : ''}
+        {this.state.query === 'San Francisco' ? <HeaderDiv>Places to stay near you</HeaderDiv> : ''}
         {!this.state.query.length ? '' 
           : (this.state.results.length > 0 
             ? 
