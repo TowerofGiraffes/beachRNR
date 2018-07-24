@@ -7,7 +7,7 @@ const PageList = styled.ul`
 `;
 
 const PageLink = styled.a`
-  &:hover: {
+  &:hover {
     cursor: pointer;
     text-decoration: underline;}
 `;
