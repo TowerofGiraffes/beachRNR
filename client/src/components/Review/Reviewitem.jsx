@@ -11,11 +11,16 @@ const ReviewItemDiv = styled.div`
   border-width: 1px;
 `;
 
+
 const ReviewItemAvatar = styled.img`
   width: 40px;
   height: 40px;
   float: left;
   border-radius: 50%;
+`;
+
+const ReviewPerson = styled.span`
+  line-height: 1.5em;
 `;
 
 const ReviewContent = styled.div`
@@ -24,10 +29,6 @@ const ReviewContent = styled.div`
   margin: 1em 0 1.5em;
 `;
 
-const ReviewPerson = styled.span`
-  margin: 0.8em;
-  line-height: 1.3em;
-`;
 
 const ReadMoreButton = styled.span`
   color: #008080;
@@ -51,11 +52,15 @@ class ReviewItem extends React.Component {
   render() {
     return (
       <ReviewItemDiv>
-        <ReviewItemAvatar src={this.props.user_avatar} />
-        <ReviewPerson>{this.props.user_name}</ReviewPerson>
-        <ReportModal/>
-        <br></br>
-        <ReviewPerson>{this.props.review_date}</ReviewPerson>
+        <div>
+          <div style={{width:'10%','display':'inline-block', 'verticalAlign': 'middle'}}><ReviewItemAvatar src={this.props.user_avatar} /></div>
+          <div style={{width:'80%','display':'inline-block', 'verticalAlign': 'middle'}}>
+            <ReviewPerson>{this.props.user_name}</ReviewPerson>
+            <br></br>
+            <ReviewPerson>{this.props.review_date}</ReviewPerson>
+          </div>
+          <div style={{width:'10%','display':'inline-block', 'textAlign':'right'}}><ReportModal/></div>
+        </div>
         <ReviewContent>
           <span>{this.props.review_content.slice(0, 253)}</span>
           {this.props.review_content.length > 253
