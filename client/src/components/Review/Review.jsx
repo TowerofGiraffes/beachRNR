@@ -55,6 +55,10 @@ class Review extends React.Component {
     window.addEventListener('resize', this.onWindowResize);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
+
   onWindowResize() {
     this.setState({
       'isMobile': window.innerWidth < 500,
