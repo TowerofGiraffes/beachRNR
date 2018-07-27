@@ -28,10 +28,6 @@ const ReviewPanel = styled.div`
   border-width: 1px;
 `;
 
-const ReviewListItem = styled.li`
-  margin-top: 5px;
-`;
-
 const PagPanel = styled.div`
   margin-top: 2em;
 `;
@@ -43,15 +39,12 @@ const GridColumn = styled(Grid.Column)`
 `;
 
 const WhiteGrid = styled(Grid)`
-   height: 1em !important;
+  height: 1em !important;
 `;
 
 const RatingGrid = styled(Grid)`
-  margin-bottom: 20px !important;
-  padding-bottom:10px !important;
-  border-bottom-style: solid !important;
-  border-bottom-color: grey !important;
-  border-width: 1px !important;
+  lineHeight: 1.2em;
+  height: 3em;
 `;
 
 const ReviewGrid = styled(Grid)`
@@ -133,10 +126,3 @@ class Review extends React.Component {
 
 
 export default Review;
-
-
-          // { this.state.isMobile || this.state.isTablet
-          //   ? ''
-          //   : <Grid.Column computer={2} largeScreen={2} widescreen={2}>
-          //     </Grid.Column>
-          // }
