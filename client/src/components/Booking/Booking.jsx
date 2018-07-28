@@ -46,6 +46,7 @@ const Carat = styled.svg`
 
 const GuestTypeWrapper = styled.div`
   margin-bottom: 1rem;
+  user-select: none;
 `;
 
 const InlineBlock = styled.div`
