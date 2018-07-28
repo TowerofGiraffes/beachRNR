@@ -75,6 +75,8 @@ const AdultCounterDecrement = GuestTypeCounterButton.extend`
   opacity: ${props => props.guestCount < 2 ? '0.5' : '1'};
 `;
 
+const AdultCounterIncrement = GuestTypeCounterButton.extend``;
+
 const ButtonCircle = InlineBlock.extend`
   border: 1px solid green;
   border-radius: 100%;
@@ -87,7 +89,9 @@ const VertAlignedSpan = styled.span`
   vertical-align: middle;
 `;
 
-const AdultCounterIncrement = GuestTypeCounterButton.extend``;
+const GuestCount = InlineBlock.extend`
+  width: 20%
+`;
 
 class Booking extends React.Component {
   constructor(props) {
@@ -192,9 +196,9 @@ class Booking extends React.Component {
                                 <VertAlignedSpan>-</VertAlignedSpan>
                               </ButtonCircle>
                             </AdultCounterDecrement>
-                            <div style={{display: 'inline-block', width: '20%'}}>
+                            <GuestCount>
                               <VertAlignedSpan>{this.state.standardGuests}</VertAlignedSpan>
-                            </div>
+                            </GuestCount>
                             <AdultCounterIncrement onClick={this.incrementGuests} >
                               <ButtonCircle>
                                 <VertAlignedSpan>+</VertAlignedSpan>
