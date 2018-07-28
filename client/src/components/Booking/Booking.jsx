@@ -64,6 +64,18 @@ const GuestTypeCounter = GuestTypeSection.extend`
   text-align: center;
 `;
 
+const GuestTypeCounterButton = InlineBlock.extend`
+  width: 40%;
+  height: 100%;
+  cursor: pointer;
+`;
+
+const AdultCounterDecrement = GuestTypeCounterButton.extend`
+  opacity: ${props => props.guestCount < 2 ? '0.5' : '1'};
+`;
+
+const AdultCounterIncrement = GuestTypeCounterButton.extend``;
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -162,19 +174,19 @@ class Booking extends React.Component {
                         <GuestTypeWrapper>
                           <GuestTypeName>Adults</GuestTypeName>
                           <GuestTypeCounter>
-                            <div onClick={this.decrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer', opacity: this.state.standardGuests < 2 ? '0.5' : '1'}}>
+                            <AdultCounterDecrement onClick={this.decrementGuests} guestCount={this.state.standardGuests} >
                               <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
                                 <span style={{verticalAlign: 'middle'}}>-</span>
                               </div>
-                            </div>
+                            </AdultCounterDecrement>
                             <div style={{display: 'inline-block', width: '20%'}}>
                               <span style={{verticalAlign: 'middle'}}>{this.state.standardGuests}</span>
                             </div>
-                            <div onClick={this.incrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer'}}>
+                            <AdultCounterIncrement onClick={this.incrementGuests} >
                               <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
                                 <span style={{verticalAlign: 'middle'}}>+</span>
                               </div>
-                            </div>
+                            </AdultCounterIncrement>
                           </GuestTypeCounter>
                         </GuestTypeWrapper>
                       </Card.Content>
