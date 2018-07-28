@@ -44,6 +44,10 @@ const Carat = styled.svg`
   fill: currentcolor;
 `;
 
+const GuestTypeWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -139,22 +143,24 @@ class Booking extends React.Component {
                   ?
                     <Card style={{position: 'absolute', width: '100%', left: 0, borderRadius: 0, borderTop: '2px solid green'}}>
                       <Card.Content>
-                        <div style={{display: 'inline-block', width: '50%', textAlign: 'left'}}>Adults</div>
-                        <div style={{display: 'inline-block', width: '50%', textAlign: 'center'}}>
-                          <div onClick={this.decrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer', opacity: this.state.standardGuests < 2 ? '0.5' : '1'}}>
-                            <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
-                              <span style={{verticalAlign: 'middle'}}>-</span>
+                        <GuestTypeWrapper>
+                          <div style={{display: 'inline-block', width: '50%', textAlign: 'left'}}>Adults</div>
+                          <div style={{display: 'inline-block', width: '50%', textAlign: 'center'}}>
+                            <div onClick={this.decrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer', opacity: this.state.standardGuests < 2 ? '0.5' : '1'}}>
+                              <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
+                                <span style={{verticalAlign: 'middle'}}>-</span>
+                              </div>
+                            </div>
+                            <div style={{display: 'inline-block', width: '20%'}}>
+                              <span style={{verticalAlign: 'middle'}}>{this.state.standardGuests}</span>
+                            </div>
+                            <div onClick={this.incrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer'}}>
+                              <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
+                                <span style={{verticalAlign: 'middle'}}>+</span>
+                              </div>
                             </div>
                           </div>
-                          <div style={{display: 'inline-block', width: '20%'}}>
-                            <span style={{verticalAlign: 'middle'}}>{this.state.standardGuests}</span>
-                          </div>
-                          <div onClick={this.incrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer'}}>
-                            <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
-                              <span style={{verticalAlign: 'middle'}}>+</span>
-                            </div>
-                          </div>
-                        </div>
+                        </GuestTypeWrapper>
                       </Card.Content>
                     </Card>
                   : null
