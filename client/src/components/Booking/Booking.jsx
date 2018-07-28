@@ -48,6 +48,22 @@ const GuestTypeWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
+const InlineBlock = styled.div`
+  display: inline-block
+`;
+
+const GuestTypeSection = InlineBlock.extend`
+  width: 50%;
+  vertical-align: middle;
+`;
+const GuestTypeName = GuestTypeSection.extend`
+  text-align: left;
+`;
+
+const GuestTypeCounter = GuestTypeSection.extend`
+  text-align: center;
+`;
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -144,8 +160,8 @@ class Booking extends React.Component {
                     <Card style={{position: 'absolute', width: '100%', left: 0, borderRadius: 0, borderTop: '2px solid green'}}>
                       <Card.Content>
                         <GuestTypeWrapper>
-                          <div style={{display: 'inline-block', width: '50%', textAlign: 'left'}}>Adults</div>
-                          <div style={{display: 'inline-block', width: '50%', textAlign: 'center'}}>
+                          <GuestTypeName>Adults</GuestTypeName>
+                          <GuestTypeCounter>
                             <div onClick={this.decrementGuests} style={{display: 'inline-block', width: '40%', height: '100%', cursor: 'pointer', opacity: this.state.standardGuests < 2 ? '0.5' : '1'}}>
                               <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
                                 <span style={{verticalAlign: 'middle'}}>-</span>
@@ -159,7 +175,7 @@ class Booking extends React.Component {
                                 <span style={{verticalAlign: 'middle'}}>+</span>
                               </div>
                             </div>
-                          </div>
+                          </GuestTypeCounter>
                         </GuestTypeWrapper>
                       </Card.Content>
                     </Card>
