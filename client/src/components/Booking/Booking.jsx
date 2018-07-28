@@ -57,6 +57,7 @@ const GuestTypeSection = InlineBlock.extend`
   width: 50%;
   vertical-align: middle;
 `;
+
 const GuestTypeName = GuestTypeSection.extend`
   text-align: left;
 `;
