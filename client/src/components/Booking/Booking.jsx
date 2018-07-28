@@ -83,6 +83,10 @@ const ButtonCircle = InlineBlock.extend`
   height: 2rem;
 `;
 
+const VertAlignedSpan = styled.span`
+  vertical-align: middle;
+`;
+
 const AdultCounterIncrement = GuestTypeCounterButton.extend``;
 
 class Booking extends React.Component {
@@ -185,15 +189,15 @@ class Booking extends React.Component {
                           <GuestTypeCounter>
                             <AdultCounterDecrement onClick={this.decrementGuests} guestCount={this.state.standardGuests} >
                               <ButtonCircle>
-                                <span style={{verticalAlign: 'middle'}}>-</span>
+                                <VertAlignedSpan>-</VertAlignedSpan>
                               </ButtonCircle>
                             </AdultCounterDecrement>
                             <div style={{display: 'inline-block', width: '20%'}}>
-                              <span style={{verticalAlign: 'middle'}}>{this.state.standardGuests}</span>
+                              <VertAlignedSpan>{this.state.standardGuests}</VertAlignedSpan>
                             </div>
                             <AdultCounterIncrement onClick={this.incrementGuests} >
                               <ButtonCircle>
-                                <span style={{verticalAlign: 'middle'}}>+</span>
+                                <VertAlignedSpan>+</VertAlignedSpan>
                               </ButtonCircle>
                             </AdultCounterIncrement>
                           </GuestTypeCounter>
