@@ -93,6 +93,14 @@ const GuestCount = InlineBlock.extend`
   width: 20%
 `;
 
+const GuestSelect = styled(Card)`
+  position: absolute !important;
+  width: 100% !important;
+  left: 0;
+  border-top: 2px solid green !important;
+  border-radius: 0 !important;
+`;
+
 class Booking extends React.Component {
   constructor(props) {
     super(props);
@@ -186,7 +194,7 @@ class Booking extends React.Component {
                 </div>
                 {this.state.guestMenuOpen
                   ?
-                    <Card style={{position: 'absolute', width: '100%', left: 0, borderRadius: 0, borderTop: '2px solid green'}}>
+                    <GuestSelect>
                       <Card.Content>
                         <GuestTypeWrapper>
                           <GuestTypeName>Adults</GuestTypeName>
@@ -207,7 +215,7 @@ class Booking extends React.Component {
                           </GuestTypeCounter>
                         </GuestTypeWrapper>
                       </Card.Content>
-                    </Card>
+                    </GuestSelect>
                   : null
                 }
               </DropDown>
