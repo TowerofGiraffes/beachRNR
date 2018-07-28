@@ -75,6 +75,14 @@ const AdultCounterDecrement = GuestTypeCounterButton.extend`
   opacity: ${props => props.guestCount < 2 ? '0.5' : '1'};
 `;
 
+const ButtonCircle = InlineBlock.extend`
+  border: 1px solid green;
+  border-radius: 100%;
+  color: green;
+  width: 2rem;
+  height: 2rem;
+`;
+
 const AdultCounterIncrement = GuestTypeCounterButton.extend``;
 
 class Booking extends React.Component {
@@ -176,17 +184,17 @@ class Booking extends React.Component {
                           <GuestTypeName>Adults</GuestTypeName>
                           <GuestTypeCounter>
                             <AdultCounterDecrement onClick={this.decrementGuests} guestCount={this.state.standardGuests} >
-                              <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
+                              <ButtonCircle>
                                 <span style={{verticalAlign: 'middle'}}>-</span>
-                              </div>
+                              </ButtonCircle>
                             </AdultCounterDecrement>
                             <div style={{display: 'inline-block', width: '20%'}}>
                               <span style={{verticalAlign: 'middle'}}>{this.state.standardGuests}</span>
                             </div>
                             <AdultCounterIncrement onClick={this.incrementGuests} >
-                              <div style={{display: 'inline-block', border: '1px solid green', borderRadius: '100%', color: 'green', width: '2rem', height: '2rem'}}>
+                              <ButtonCircle>
                                 <span style={{verticalAlign: 'middle'}}>+</span>
-                              </div>
+                              </ButtonCircle>
                             </AdultCounterIncrement>
                           </GuestTypeCounter>
                         </GuestTypeWrapper>
