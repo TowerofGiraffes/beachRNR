@@ -34,12 +34,12 @@ const MainLayout = (props) => {
           <Grid>
             <Grid.Row>
               <Grid.Column mobile={16} tablet={16} largeScreen={9} widescreen={9}>
-                <ListingPage />
-                <MobileBookingWrapper><Booking /></MobileBookingWrapper>
-                <Review />
+                <ListingPage {...props} listingId={props.match.params.id} currentListing={currentListing} />
+                <MobileBookingWrapper><Booking {...props} listingId={props.match.params.id} /></MobileBookingWrapper>
+                <Review {...props} listingId={props.match.params.id} />
               </Grid.Column>
               <Grid.Column largeScreen={7} only="large screen">
-                <Booking />
+                <Booking {...props} listingId={props.match.params.id} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
