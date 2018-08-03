@@ -24,6 +24,8 @@ class MainLayout extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {};
+
     this.handleStickyContextRef = this.handleStickyContextRef.bind(this);
   }
 
