@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { details } from '../data/mockpagedetail.js';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Sticky } from 'semantic-ui-react';
 
 import Navbar from './Navbar/Navbar.jsx';
 import ListingPage from './Details/ListingPage.jsx';
@@ -23,6 +23,14 @@ const MobileBookingWrapper = styled.div`
 class MainLayout extends Component {
   constructor(props) {
     super(props);
+
+    this.handleStickyContextRef = this.handleStickyContextRef.bind(this);
+  }
+
+  handleStickyContextRef(context) {
+    this.setState({
+      stickyContextRef: context
+    });
   }
 
   render() {
