@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { details } from '../data/mockpagedetail.js';
 import { Grid } from 'semantic-ui-react';
@@ -20,35 +20,41 @@ const MobileBookingWrapper = styled.div`
   }
 `;
 
-const MainLayout = (props) => {
-  let currentListing = details.find(function(listing) {
-    return listing.id+"" === props.match.params.id;
-  });
-  if(currentListing) {
-    return (
-      <React.Fragment>
-        <div>
-          <Navbar />
-        </div>
-        <Div>
-          <Grid>
-            <Grid.Row>
-              <Grid.Column mobile={16} tablet={16} largeScreen={9} widescreen={9}>
-                <ListingPage {...props} listingId={props.match.params.id} currentListing={currentListing} />
-                <MobileBookingWrapper><Booking {...props} listingId={props.match.params.id} /></MobileBookingWrapper>
-                <Review {...props} listingId={props.match.params.id} />
-              </Grid.Column>
-              <Grid.Column largeScreen={7} only="large screen">
-                <Booking {...props} listingId={props.match.params.id} />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Div>
-      </React.Fragment>
-    )
-  } else {
-    return (<p>Listing not found.</p>);
+class MainLayout extends Component {
+  constructor(props) {
+    super(props);
   }
-};
+
+  render() {
+    let currentListing = details.find((listing) => {
+      return listing.id+"" === this.props.match.params.id;
+    });
+    if(currentListing) {
+      return (
+        <React.Fragment>
+          <div>
+            <Navbar />
+          </div>
+          <Div>
+            <Grid>
+              <Grid.Row>
+                <Grid.Column mobile={16} tablet={16} largeScreen={9} widescreen={9}>
+                  <ListingPage {...this.props} listingId={this.props.match.params.id} currentListing={currentListing} />
+                  <MobileBookingWrapper><Booking {...this.props} listingId={this.props.match.params.id} /></MobileBookingWrapper>
+                  <Review {...this.props} listingId={this.props.match.params.id} />
+                </Grid.Column>
+                <Grid.Column largeScreen={7} only="large screen">
+                  <Booking {...this.props} listingId={this.props.match.params.id} />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Div>
+        </React.Fragment>
+      )
+    } else {
+      return (<p>Listing not found.</p>);
+    }
+  }
+}
 
 export default MainLayout;
