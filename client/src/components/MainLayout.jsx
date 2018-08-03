@@ -15,6 +15,8 @@ const Div = styled.div`
 `;
 
 const MobileBookingWrapper = styled.div`
+  margin: 3rem auto;
+
   @media (min-width: 1200px) {
     display: none;
   }
