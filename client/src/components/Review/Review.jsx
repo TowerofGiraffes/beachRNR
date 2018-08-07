@@ -101,7 +101,7 @@ class Review extends React.Component {
           <GridColumn computer={2} largeScreen={2} widescreen={2}></GridColumn>
 
           <Grid.Column mobile={16} tablet={16} computer={7} largeScreen={7} widescreen={7}>
-            {this.state.revewCategories.slice(3).map((item, i) => (
+            {this.state.ratings.slice(3).map((item, i) => (
               <RatingGrid key={i}>
                 <Grid.Column mobile={7} tablet={7} computer={7} largeScreen={7} widescreen={7}>
                   {item['name']}
