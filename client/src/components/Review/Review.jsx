@@ -6,6 +6,7 @@ import ReviewItem from './Reviewitem.jsx';
 import styled from 'styled-components';
 import Pagination from './Pagination.jsx';
 import {Grid} from 'semantic-ui-react';
+import api from '../../../utils/api.js';
 
 
 const ReviewCount = styled.h2`
@@ -59,11 +60,11 @@ class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'reviewList': FullReviewList.slice(0, 10),
-      'fullReviewList': FullReviewList,
+      'reviewList': [],
+      'fullReviewList': [],
       'revewCategories': ['Accuracy', 'Location', 'Communication', 'Checkin', 'Cleanliness', 'Value'],
-      'ratingNReviewcount': RatingNReviewcount,
-      'ratings': Ratings,
+      'ratingNReviewcount': {},
+      'ratings': [],
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -72,6 +73,40 @@ class Review extends React.Component {
     this.setState({
       'reviewList': currentPageItems
     })
+  }
+
+  componentDidMount() {
+    this.getReviewContent(this.props.listingId);
+    this.getReviewRatings(this.props.listingId);
+    this.getReviewAvgRatingNReviewCount(this.props.listingId);
+  }
+
+  getReviewContent(listingId) {
+    console.log('listingid .>>' + listingId);
+    api.fetchReviews(listingId)
+      .then(data => {
+        this.setState({'fullReviewList': data});
+      }, err=> {
+        console.log('getReviewContent error >>>' + err);
+      })
+  }
+
+  getReviewRatings(listingId) {
+    api.fetchRatings(listingId)
+      .then(data => {
+        this.setState({'ratings': data});
+      }, err=> {
+        console.log('getReviewRatingsAPI error >>>' + err);
+      })
+  }
+
+  getReviewAvgRatingNReviewCount(listingId) {
+    api.fetchRatingNReviewCount(listingId)
+      .then(data => {
+        this.setState({'ratingNReviewcount': data});
+      }, err=> {
+        console.log('fetchRatingNReviewCount error >>>' + err);
+      })
   }
 
   render() {
