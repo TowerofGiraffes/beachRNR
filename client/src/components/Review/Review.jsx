@@ -82,10 +82,10 @@ class Review extends React.Component {
   }
 
   getReviewContent(listingId) {
-    console.log('listingid .>>' + listingId);
     api.fetchReviews(listingId)
       .then(data => {
-        this.setState({'fullReviewList': data});
+        this.setState({'fullReviewList': data,
+                        'reviewList': data.slice(0, 10)});
       }, err=> {
         console.log('getReviewContent error >>>' + err);
       })
