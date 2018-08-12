@@ -73,7 +73,7 @@ class Review extends React.Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getReviewContent(this.props.listingId);
     this.getReviewRatings(this.props.listingId);
     this.getReviewAvgRatingNReviewCount(this.props.listingId);
