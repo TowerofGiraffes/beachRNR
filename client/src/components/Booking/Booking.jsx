@@ -88,7 +88,7 @@ class Booking extends React.Component {
                 endDateId=""
                 onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
                 focusedInput={this.state.focusedInput}
-                onFocusChange={focusedInput => this.setState({ focusedInput })}
+                onFocusChange={focusedInput => !this.state.blockedDates || this.setState({ focusedInput })}
                 numberOfMonths={1}
                 isDayBlocked={this.isDayBlocked}
               />
