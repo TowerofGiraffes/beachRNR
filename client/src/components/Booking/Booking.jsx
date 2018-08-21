@@ -29,6 +29,12 @@ class Booking extends React.Component {
     this.isDayBlocked = this.isDayBlocked.bind(this);
   }
 
+  componentDidMount() {
+    fetch(`http://ec2-54-215-179-47.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`)
+      .then(res => res.json())
+      .then(res => this.setState({ blockedDates: res }));
+  }
+
   toggleGuestMenu() {
     this.setState({
       guestMenuOpen: !this.state.guestMenuOpen
