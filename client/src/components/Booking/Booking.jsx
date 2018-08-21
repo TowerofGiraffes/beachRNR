@@ -7,7 +7,6 @@ import '../../styles/booking.css';
 import { SmallText, BigText } from './../Styles/Booking/HelperStyles.jsx';
 import { VertAlignedStars, CardContainer } from './../Styles/Booking/BookingStyles.jsx';
 import GuestSelector from './GuestSelector.jsx';
-import { bookedDates } from '../../data/mockedDataBooking.js';
 
 class Booking extends React.Component {
   constructor(props) {
@@ -20,8 +19,7 @@ class Booking extends React.Component {
       standardGuests: 1,
       infantGuests: 0,
       guestMenuOpen: false,
-      booked: false,
-      blockedDates: bookedDates[props.listingId]
+      booked: false
     };
 
     this.toggleGuestMenu = this.toggleGuestMenu.bind(this);
