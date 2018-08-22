@@ -103,7 +103,9 @@ class Booking extends React.Component {
             <Divider hidden />
             <GuestSelector
               guestMenuOpen={this.state.guestMenuOpen}
-              standardGuests={this.state.standardGuests}
+              adultGuests={this.state.adultGuests}
+              childGuests={this.state.childGuests}
+              infantGuests={this.state.infantGuests}
               booked={this.state.booked}
               guestCount={guestCount}
               toggleGuestMenu={this.toggleGuestMenu}
