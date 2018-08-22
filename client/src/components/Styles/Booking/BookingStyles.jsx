@@ -32,8 +32,11 @@ export const Carat = styled.svg`
 `;
 
 export const GuestTypeWrapper = styled.div`
-  margin-bottom: 1rem;
   user-select: none;
+
+  :not(:last-child) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const InlineBlock = styled.div`
