@@ -65,6 +65,12 @@ export const AdultCounterDecrement = GuestTypeCounterButton.extend`
 
 export const AdultCounterIncrement = GuestTypeCounterButton.extend``;
 
+export const CounterDecrement = GuestTypeCounterButton.extend`
+  opacity: ${props => props.guestCount < 1 ? '0.5' : '1'};
+`;
+
+export const CounterIncrement = GuestTypeCounterButton.extend``;
+
 export const ButtonCircle = InlineBlock.extend`
   border: 1px solid green;
   border-radius: 100%;
