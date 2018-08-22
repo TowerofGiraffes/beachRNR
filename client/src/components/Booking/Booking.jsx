@@ -42,17 +42,21 @@ class Booking extends React.Component {
     });
   }
 
-  incrementGuests() {
-    this.setState({
-      standardGuests: ++this.state.standardGuests
-    });
+  incrementGuests(guestType) {
+    this.setState(prevState => ({
+      [guestType]: ++prevState[guestType]
+    }));
   }
 
-  decrementGuests() {
-    if (this.state.standardGuests > 1) {
-      this.setState({
-        standardGuests: --this.state.standardGuests
-      });
+  decrementGuests(guestType) {
+    if (guestType === 'adultGuests' && this.state.adultGuests > 1) {
+      this.setState(prevState => ({
+        adultGuests: --prevState.adultGuests
+      }));
+    } else if (guestType !== 'adultGuests' && this.state[guestType] > 0) {
+      this.setState(prevState => ({
+        [guestType]: --prevState[guestType]
+      }));
     }
   }
   
