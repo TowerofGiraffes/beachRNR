@@ -37,9 +37,9 @@ class Booking extends React.Component {
   }
 
   toggleGuestMenu() {
-    this.setState({
-      guestMenuOpen: !this.state.guestMenuOpen
-    });
+    this.setState(prevState => ({
+      guestMenuOpen: !prevState.guestMenuOpen
+    }));
   }
 
   incrementGuests(guestType) {
