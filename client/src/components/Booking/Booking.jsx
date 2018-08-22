@@ -16,7 +16,8 @@ class Booking extends React.Component {
       startDate: null,
       endDate: null,
       focusedInput: null,
-      standardGuests: 1,
+      adultGuests: 1,
+      childGuests: 0,
       infantGuests: 0,
       guestMenuOpen: false,
       booked: false
@@ -66,9 +67,9 @@ class Booking extends React.Component {
   }
 
   render() {
-
-    let guestCount = this.state.standardGuests + ' guest';
-    guestCount += this.state.standardGuests > 1 ? 's' : '';
+    const standardGuests = this.state.adultGuests + this.state.childGuests;
+    let guestCount = standardGuests + ' guest';
+    guestCount += standardGuests > 1 ? 's' : '';
     guestCount += this.state.infantGuests ? `, ${this.state.infantGuests} infant` : '';
     guestCount += this.state.infantGuests ? 's' : '';
 
