@@ -36,15 +36,15 @@ const GuestSelector = (props) => (
               <GuestTypeWrapper>
                 <GuestTypeName>Adults</GuestTypeName>
                 <GuestTypeCounter>
-                  <AdultCounterDecrement onClick={props.decrementGuests} guestCount={props.standardGuests} >
+                  <AdultCounterDecrement onClick={() => props.decrementGuests('adultGuests')} guestCount={props.adultGuests} >
                     <ButtonCircle>
                       <VertAlignedSpan>-</VertAlignedSpan>
                     </ButtonCircle>
                   </AdultCounterDecrement>
                   <GuestCount>
-                    <VertAlignedSpan>{props.standardGuests}</VertAlignedSpan>
+                    <VertAlignedSpan>{props.adultGuests}</VertAlignedSpan>
                   </GuestCount>
-                  <AdultCounterIncrement onClick={props.incrementGuests} >
+                  <AdultCounterIncrement onClick={() => props.incrementGuests('adultGuests')} >
                     <ButtonCircle>
                       <VertAlignedSpan>+</VertAlignedSpan>
                     </ButtonCircle>
