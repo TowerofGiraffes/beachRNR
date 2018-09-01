@@ -21,10 +21,6 @@ const ReviewPanel = styled.div`
   border-bottom-style: solid;
   border-bottom-color: grey;
   border-width: 1px;
-  margin: 90px auto 0 auto;
-  max-width: 1080px;
-  padding: 0 1rem;
-
 `;
 
 const PagPanel = styled.div`
