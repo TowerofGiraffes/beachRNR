@@ -7,6 +7,7 @@ import '../../styles/booking.css';
 import { SmallText, BigText } from './../Styles/Booking/HelperStyles.jsx';
 import { VertAlignedStars, CardContainer } from './../Styles/Booking/BookingStyles.jsx';
 import GuestSelector from './GuestSelector.jsx';
+import swal from 'sweetalert';
 
 class Booking extends React.Component {
   constructor(props) {
@@ -86,7 +87,7 @@ class Booking extends React.Component {
     fetch(`http://ec2-54-183-199-154.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`, init)
       .then(res => res.json())
       .then(res => {
-        this.setState({ booked: !this.state.booked })
+        swal("All booked!", "Thank you.", "success");
       })
       .catch(console.error);
   }
