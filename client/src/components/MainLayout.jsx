@@ -72,11 +72,11 @@ class MainLayout extends Component {
                 <Grid.Row>
                   <Grid.Column mobile={16} tablet={16} largeScreen={9} widescreen={9}>
                     <ListingPage {...this.props} listingId={this.props.match.params.id} currentListing={this.state.currentListing} />
-                    <MobileBookingWrapper><Booking {...this.props} listingId={this.props.match.params.id} /></MobileBookingWrapper>
+                    <MobileBookingWrapper><Booking {...this.props} listingId={this.props.match.params.id} unitPrice={this.state.currentListing.unitPrice} /></MobileBookingWrapper>
                     <Review {...this.props} listingId={this.props.match.params.id} />
                   </Grid.Column>
                   <Grid.Column largeScreen={7} only="large screen">
-                    <Sticky context={this.state.stickyContextRef} offset={120}><Booking {...this.props} listingId={this.props.match.params.id} /></Sticky>
+                    <Sticky context={this.state.stickyContextRef} offset={120}><Booking {...this.props} listingId={this.props.match.params.id} unitPrice={this.state.currentListing.unitPrice} /></Sticky>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>

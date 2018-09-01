@@ -22,7 +22,9 @@ class Booking extends React.Component {
       childGuests: 0,
       infantGuests: 0,
       guestMenuOpen: false,
-      booked: false
+      booked: false,
+      unitPrice: Number(props.unitPrice),
+      currentPrice: Number(props.unitPrice)
     };
 
     this.toggleGuestMenu = this.toggleGuestMenu.bind(this);
@@ -30,6 +32,7 @@ class Booking extends React.Component {
     this.decrementGuests = this.decrementGuests.bind(this);
     this.book = this.book.bind(this);
     this.isDayBlocked = this.isDayBlocked.bind(this);
+    this.onDatesChange = this.onDatesChange.bind(this);
   }
 
   componentDidMount() {
@@ -107,7 +110,7 @@ class Booking extends React.Component {
       .then(res => res.json())
       .then(res => {
         const newBlockedDates = Object.assign({}, this.state.blockedDates);
-        dates.forEach(date => newBlockedDates[date] = 1);
+        dates.forEaonDatesChangech(date => newBlockedDates[date] = 1);
         this.setState({
           blockedDates: newBlockedDates,
           startDate: null,
@@ -126,6 +129,22 @@ class Booking extends React.Component {
     return this.state.blockedDates[day.format('YYYYMMDD')];
   }
 
+  onDatesChange({ startDate, endDate }) {
+    if (startDate && endDate) {
+      const stayLength = endDate.diff(startDate, 'd') + 1;
+      this.setState(prevState => ({
+        startDate: startDate,
+        endDate: endDate,
+        currentPrice: prevState.unitPrice * stayLength
+      }));
+    } else if (startDate) {
+      this.setState({
+        startDate: startDate,
+        endDate: null
+      });
+    }
+  }
+
   render() {
     const standardGuests = this.state.adultGuests + this.state.childGuests;
     let guestCount = standardGuests + ' guest';
@@ -138,7 +157,7 @@ class Booking extends React.Component {
         <Card fluid>
           <Card.Content>
             <Card.Header>
-              <BigText>$70</BigText> <SmallText>per night</SmallText>
+              <BigText>${this.state.currentPrice}</BigText> <SmallText>per night</SmallText>
               <div>
                 <VertAlignedStars count={5} size={12} value={5} color2={'#137269'} edit={false}/> <SmallText>580</SmallText>
               </div>
@@ -153,7 +172,7 @@ class Booking extends React.Component {
                 startDateId=""
                 endDate={this.state.endDate}
                 endDateId=""
-                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                onDatesChange={this.onDatesChange}
                 focusedInput={this.state.focusedInput}
                 onFocusChange={focusedInput => !this.state.blockedDates || this.setState({ focusedInput })}
                 numberOfMonths={1}
