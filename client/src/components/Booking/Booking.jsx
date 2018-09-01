@@ -8,6 +8,7 @@ import { SmallText, BigText } from './../Styles/Booking/HelperStyles.jsx';
 import { VertAlignedStars, CardContainer } from './../Styles/Booking/BookingStyles.jsx';
 import GuestSelector from './GuestSelector.jsx';
 import swal from 'sweetalert';
+import moment from 'moment';
 
 class Booking extends React.Component {
   constructor(props) {
@@ -62,6 +63,22 @@ class Booking extends React.Component {
   }
   
   book() {
+    const startDate = moment(this.state.startDate);
+    const endDate = moment(this.state.endDate);
+    const diff = endDate.diff(startDate, 'd') + 1;
+
+    startDate.subtract(1, 'd');
+    for (let i = 0; i < diff; i++) {
+      const date = startDate.add(1, 'd').format('YYYYMMDD');
+      if (this.state.blockedDates[date]) {
+        swal("Oops!", "Some dates in your selection have already been booked.", "error");
+        return this.setState({
+          startDate: null,
+          endDate: null
+        });
+      }
+    }
+
     const body = {
       dates: {
         startDate: this.state.startDate,
