@@ -31,6 +31,16 @@ const PagPanel = styled.div`
   margin-top: 2em;
 `;
 
+const Offset = styled.h3`
+  :before {
+    display: block;
+    content: " ";
+    height: 90px;
+    margin-top: -90px;
+    visibility: hidden;
+  }
+`;
+
 const GridColumn = styled(Grid.Column)`
   @media (max-width: 989px) {
     display: none !important;
@@ -56,16 +66,6 @@ const ReviewGrid = styled(Grid)`
 
 const StarsGrid = styled(Grid.Column)`
   text-align: right !important;
-`;
-
-const Offset = styled.h3`
-  :before {
-    display: block;
-    content: " ";
-    height: 90px;
-    margin-top: -90px;
-    visibility: hidden;
-  }
 `;
 
 class Review extends React.Component {
@@ -130,10 +130,6 @@ class Review extends React.Component {
           <ReviewStar count={5} size={30} value ={5} color2={'#137269'} edit={false}></ReviewStar>
         </ReviewPanel>
         <WhiteGrid><Grid.Column></Grid.Column></WhiteGrid>
-  margin: 90px auto 0 auto;
-  max-width: 1080px;
-  padding: 0 1rem;
-
         <ReviewGrid>
           <Grid.Column mobile={16} tablet={16} computer={7} largeScreen={7} widescreen={7}>
             {this.state.ratings.slice(0, 3).map((item, i) => (
