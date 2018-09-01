@@ -31,7 +31,7 @@ class Booking extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://ec2-54-215-179-47.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`)
+    fetch(`http://ec2-54-183-199-154.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`)
       .then(res => res.json())
       .then(res => this.setState({ blockedDates: res }));
   }
@@ -83,7 +83,7 @@ class Booking extends React.Component {
       body: JSON.stringify(body)
     };
     
-    fetch(`http://ec2-54-215-179-47.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`, init)
+    fetch(`http://ec2-54-183-199-154.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`, init)
       .then(res => res.json())
       .then(res => {
         this.setState({ booked: !this.state.booked })
