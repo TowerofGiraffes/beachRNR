@@ -27,16 +27,6 @@ const PagPanel = styled.div`
   margin-top: 2em;
 `;
 
-const Offset = styled.h3`
-  :before {
-    display: block;
-    content: " ";
-    height: 90px;
-    margin-top: -90px;
-    visibility: hidden;
-  }
-`;
-
 const GridColumn = styled(Grid.Column)`
   @media (max-width: 989px) {
     display: none !important;
@@ -62,6 +52,16 @@ const ReviewGrid = styled(Grid)`
 
 const StarsGrid = styled(Grid.Column)`
   text-align: right !important;
+`;
+
+const Offset = styled.div`
+  :before {
+    display: block;
+    content: " ";
+    height: 90px;
+    margin-top: -90px;
+    visibility: hidden;
+  }
 `;
 
 class Review extends React.Component {
@@ -120,7 +120,7 @@ class Review extends React.Component {
   render() {
     return (
       <div>
-        <Offset id="reviewtop" name='reviewtop' />
+        <Offset id='reviewtop' name='reviewtop' />
         <ReviewPanel>
           <ReviewCount>{this.state.ratingNReviewcount['review_count']} Reviews</ReviewCount>
           <ReviewStar count={5} size={30} value ={5} color2={'#137269'} edit={false}></ReviewStar>
