@@ -22,6 +22,16 @@ const MobileBookingWrapper = styled.div`
   }
 `;
 
+const MainImage = styled.div`
+  background-image: url(${props => props.imageUrl});
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-bottom: 1em;
+`;
+
 class MainLayout extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +67,7 @@ class MainLayout extends Component {
           </div>
           <Div>
             <div ref={this.handleStickyContextRef}>
+              <MainImage imageUrl={this.state.currentListing.unitImage} />
               <Grid>
                 <Grid.Row>
                   <Grid.Column mobile={16} tablet={16} largeScreen={9} widescreen={9}>
