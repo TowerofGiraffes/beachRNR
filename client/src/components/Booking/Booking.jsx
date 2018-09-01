@@ -66,10 +66,12 @@ class Booking extends React.Component {
     const startDate = moment(this.state.startDate);
     const endDate = moment(this.state.endDate);
     const diff = endDate.diff(startDate, 'd') + 1;
+    const dates = [];
 
     startDate.subtract(1, 'd');
     for (let i = 0; i < diff; i++) {
       const date = startDate.add(1, 'd').format('YYYYMMDD');
+      dates.push(date);
       if (this.state.blockedDates[date]) {
         swal("Oops!", "Some dates in your selection have already been booked.", "error");
         return this.setState({
@@ -104,7 +106,18 @@ class Booking extends React.Component {
     fetch(`http://ec2-54-183-199-154.us-west-1.compute.amazonaws.com:3000/api/bookings/${this.props.listingId}`, init)
       .then(res => res.json())
       .then(res => {
-        swal("All booked!", "Thank you.", "success");
+        const newBlockedDates = Object.assign({}, this.state.blockedDates);
+        dates.forEach(date => newBlockedDates[date] = 1);
+        this.setState({
+          blockedDates: newBlockedDates,
+          startDate: null,
+          endDate: null,
+          adultGuests: 1,
+          childGuests: 0,
+          infantGuests: 0
+        }, () => {
+          swal("All booked!", "Thank you.", "success");
+        });
       })
       .catch(console.error);
   }
