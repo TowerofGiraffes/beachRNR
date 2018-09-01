@@ -126,7 +126,7 @@ class Review extends React.Component {
         <Offset id='reviewtop' name='reviewtop' />
         <ReviewPanel>
           <ReviewCount>{this.state.ratingNReviewcount['review_count']} Reviews</ReviewCount>
-          <ReviewStar count={5} size={30} value ={5} color2={'#137269'} edit={false}></ReviewStar>
+          <ReviewStar count={5} size={30} value ={this.state.ratingNReviewcount['average_rating']}  color2={'#137269'} edit={false}></ReviewStar>
         </ReviewPanel>
         <WhiteGrid><Grid.Column></Grid.Column></WhiteGrid>
         <ReviewGrid>
