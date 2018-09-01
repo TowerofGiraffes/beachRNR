@@ -4,12 +4,7 @@ import style from '../../styles/listingdetails.css';
 import styled from 'styled-components';
 import api from '../../../utils/api.js';
 
-const MainImage = styled.div`
-
-`;
-
 const MainContainer = styled.div`
-  width: 60%;
   margin: 0 auto;
 `;
 
@@ -56,15 +51,6 @@ const ListingPage = (props) => {
     const data = props.currentListing;
     return (
       <div>
-        <MainImage style={ {
-          backgroundImage: 'url('+data.unitImage+')',
-          height: '500px',
-          width: '100%',
-          backgroundRepeat:'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: '50% 50%'
-        } }>
-        </MainImage>
         <MainContainer>
           <p>{data.room_type}</p>
           <Title>{data.unitName}</Title>
