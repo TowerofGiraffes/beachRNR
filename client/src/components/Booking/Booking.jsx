@@ -13,6 +13,11 @@ import moment from 'moment';
 class Booking extends React.Component {
   constructor(props) {
     super(props);
+    
+    let unitPrice = props.unitPrice;
+    if (props.unitPrice[0] === '$') {
+      unitPrice = unitPrice.slice(1);
+    }
 
     this.state = {
       startDate: null,
@@ -23,8 +28,8 @@ class Booking extends React.Component {
       infantGuests: 0,
       guestMenuOpen: false,
       booked: false,
-      unitPrice: Number(props.unitPrice),
-      currentPrice: Number(props.unitPrice)
+      unitPrice: Number(unitPrice),
+      currentPrice: Number(unitPrice)
     };
 
     this.toggleGuestMenu = this.toggleGuestMenu.bind(this);
