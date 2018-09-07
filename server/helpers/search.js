@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const host = process.env.SEARCH_SERVICE_HOST || 'localhost';
+const host = process.env.SEARCH_SERVICE_HOST || 'http://localhost';
 const port = 3001;
 
 module.exports = {

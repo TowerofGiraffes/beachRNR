@@ -11,34 +11,34 @@ const SuggestedList = styled.li`
   justify-content: space-around;
   text-align: left;
 `;
-  
+
 const SuggestedItem = styled.div`
   font-size: 12px;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 `;
-  
+
 const SuggestionCard = styled(Card)`
-  box-shadow: none !important;  
+  box-shadow: none !important;
   padding-top: 20px !important;
 `;
-  
+
 const ThumbnailImage = styled(Image)`
-  width: 300px; 
+  width: 300px;
   height: 200px;
   border-radius: 2%;
 `;
-  
+
 const StyledSpan = styled.span`
   color: #484848 !important;
 `;
 
 const HeaderSpan = styled(StyledSpan)`
-  font-size: 12px; 
+  font-size: 12px;
 `;
-  
+
 const PolicySpan = styled(StyledSpan)`
   font-weight: 100;
-  font-size: 14px;   
+  font-size: 14px;
 `;
 
 const MetaDataSpan = styled(StyledSpan)`
@@ -62,7 +62,7 @@ const Suggestions = (props) => {
                 <span> · </span>
                 {r.beds < 2 ? `${r.beds} BED` : `${r.beds} BEDS`}
                 <span> · </span>
-                {r.city}
+                {r.city}, {r.state}
               </HeaderSpan>
               <br />
               <StyledSpan>{r.unitName}</StyledSpan>
@@ -75,10 +75,10 @@ const Suggestions = (props) => {
             </Card.Header>
             <Card.Meta style={ {fontWeight: 'bold', fontColor: '#b2beb5'} }>
               <MetaDataSpan>
-                <ReactStars 
+                <ReactStars
                   count={5} size={12} value={r.reviewScoresRating} color2={'#008489'} edit={false}
                 />
-              </MetaDataSpan> 
+              </MetaDataSpan>
               <span>
                 {r.numberOfReviews}
                 {r.isSuprhost ? <span> · </span> : ''}
